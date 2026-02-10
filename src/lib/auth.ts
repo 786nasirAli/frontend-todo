@@ -43,10 +43,6 @@ export const auth = betterAuth({
         }
     },
     plugins: [
-        jwt({
-            jwt: {
-                secret: process.env.JWT_SECRET
-            }
-        })
+        jwt()
     ]
 });
