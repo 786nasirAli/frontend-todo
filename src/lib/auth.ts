@@ -22,12 +22,10 @@ export const auth = betterAuth({
     }),
     secret: process.env.BETTER_AUTH_SECRET,
     baseURL: process.env.BETTER_AUTH_URL,
-    advanced: {
-        trustedOrigins: [
-            "http://localhost:3000",
-            "https://sikandarali-your-todo-backend.hf.space"
-        ]
-    },
+    trustedOrigins: [
+        "http://localhost:3000",
+        "https://sikandarali-your-todo-backend.hf.space"
+    ],
     emailAndPassword: {
         enabled: true
     },
