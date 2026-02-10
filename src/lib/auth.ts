@@ -24,7 +24,8 @@ export const auth = betterAuth({
     baseURL: process.env.BETTER_AUTH_URL,
     trustedOrigins: [
         "http://localhost:3000",
-        "https://sikandarali-your-todo-backend.hf.space"
+        "https://sikandarali-your-todo-backend.hf.space",
+        "https://frontend-todo-sigma.vercel.app"
     ],
     emailAndPassword: {
         enabled: true
