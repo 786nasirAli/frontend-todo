@@ -16,9 +16,21 @@ export async function fetchWithAuth(endpoint: string, options: RequestInit = {})
         // console.warn("Plugin getJWT failed");
     }
 
-    // 2. Fallback: Check localStorage
+    // 2. Fallback: Check localStorage or Session
     if (!token) {
         token = localStorage.getItem("better-auth.session_token") || "";
+    }
+
+    if (!token) {
+        try {
+            const sessionRes = await authClient.getSession();
+            if (sessionRes && sessionRes.data && sessionRes.data.session) {
+                // @ts-ignore
+                token = sessionRes.data.session.token || "";
+            }
+        } catch (e) {
+            // ignore
+        }
     }
 
     const headers: Record<string, string> = {
